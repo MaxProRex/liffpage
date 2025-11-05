@@ -46,7 +46,7 @@
   <h1>打卡定位</h1>
   <button onclick="startCheckIn()">打卡</button>
   <script>
-    const WHITELIST = ['U79020fb63e5c20703ee2cb9f34c0df03', 'Uyyyyyyyyyy']; // 你的 LINE 使用者 ID 清單
+    const WHITELIST = ['U79020fb63e5c20703ee2cb9f34c0df02', 'Uyyyyyyyyyy']; // 你的 LINE 使用者 ID 清單
     const GAS_WEBHOOK = 'https://script.google.com/macros/s/AKfycbzASDfmyeoqaX3vCorH8qQr-TCMDKYp-2X_AulwC94F2SnCfOusWeE0MixhrpJyEf5o/exec';
     const RENDER_WEBHOOK = 'https://line-location-bot.onrender.com/liff-checkin';
 
@@ -68,7 +68,6 @@
         alert('您不在打卡清單中');
         return;
       }
-      console.log('白名單比對結果:', WHITELIST.includes(userId));
       navigator.geolocation.getCurrentPosition(function(position) {
         const payload = {
           userId,
