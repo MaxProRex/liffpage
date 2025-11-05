@@ -73,7 +73,8 @@
           userId,
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei', hour12: false});
+          //timestamp: new Date().toISOString()
         };
 
         //fetch(GAS_WEBHOOK, {
