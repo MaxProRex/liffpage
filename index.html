@@ -58,10 +58,8 @@
         return;
       }
 
-      if (liff.isInClient()){
-        alert('網頁在內部');
-      } else {
-        console.log('網頁在外部');
+      if (!liff.isInClient()){
+        alert('網頁在外部');
       }
       const profile = await liff.getProfile();
       const userId = profile.userId;
@@ -101,7 +99,10 @@
            //  alert('打卡失敗，請稍後再試');
           });       
       });
-      liff.closeWindow()
+      if (liff.isInClient()){
+        alert('bye');
+        liff.closeWindow()
+      } 
     }
   </script>
 </body>
