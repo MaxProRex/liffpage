@@ -59,9 +59,9 @@
       }
 
       if (liff.isInClient()){
-        alert('再內部');
+        alert('網頁在內部');
       } else {
-        alert('再外部');
+        console.log('網頁在外部');
       }
       const profile = await liff.getProfile();
       const userId = profile.userId;
