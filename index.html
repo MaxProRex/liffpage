@@ -14,7 +14,7 @@
 
     async function startCheckIn() {
       await liff.init({ liffId: '2007367348-wz2VRNqM' });
-
+      console.log('開始打卡流程');
       if (!liff.isLoggedIn()) {
         liff.login();
         return;
@@ -22,12 +22,13 @@
 
       const profile = await liff.getProfile();
       const userId = profile.userId;
-
-      if (!WHITELIST.includes(userId)) {
-        alert('您不在打卡清單中');
-        return;
-      }
-
+      console.log('取得 userId:', userId);
+      
+      //if (!WHITELIST.includes(userId)) {
+      //  alert('您不在打卡清單中');
+      //  return;
+      //}
+      console.log('白名單比對結果:', WHITELIST.includes(userId));
       navigator.geolocation.getCurrentPosition(function(position) {
         const payload = {
           userId,
@@ -40,8 +41,16 @@
           method: 'POST',
           body: JSON.stringify(payload),
           headers: { 'Content-Type': 'application/json' }
-        }).then(res => res.json())
-          .then(data => alert('打卡成功！'));
+        }).then(res => {
+          console.log('GAS 回應:', res);
+          return res.json();
+          }).then(data => {
+             console.log('GAS 回傳資料:', data);
+             alert('打卡成功！');
+          }).catch(err => {
+             console.error('打卡失敗:', err);
+             alert('打卡失敗，請稍後再試');
+          });       
       });
     }
   </script>
