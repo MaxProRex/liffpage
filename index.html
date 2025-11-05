@@ -76,9 +76,9 @@
           timestamp: new Date().toLocaleString('zh-TW', {timeZone: 'Asia/Taipei', hour12: false})
           //timestamp: new Date().toISOString()
         };
-        console.log('取得 latitude:', latitude);
-        console.log('取得 longitude:', longitude);
-        console.log('取得 timestamp:', timestamp);
+        console.log('取得 latitude:', payload.latitude);
+        console.log('取得 longitude:', payload.longitude);
+        console.log('取得 timestamp:', payload.timestamp);
         //fetch(GAS_WEBHOOK, {
         fetch(RENDER_WEBHOOK, {
           method: 'POST',
