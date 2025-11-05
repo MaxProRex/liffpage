@@ -1,11 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
+  <meta charset="UTF-8">
   <title>打卡定位</title>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .content {
+      width: 100%;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 5vw; /* 根據螢幕寬度縮放 */
+      margin: 0 0 2vh;
+    }
+
+    button {
+      font-size: 3vw;
+      padding: 1vh 3vw;
+      width: 50%;
+      max-width: 300px;
+      min-width: 150px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <h2>打卡定位</h2>
+  <h1>打卡定位</h1>
   <button onclick="startCheckIn()">打卡</button>
   <script>
     const WHITELIST = ['U79020fb63e5c20703ee2cb9f34c0df03', 'Uyyyyyyyyyy']; // 你的 LINE 使用者 ID 清單
