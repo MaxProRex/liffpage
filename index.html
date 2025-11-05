@@ -58,6 +58,11 @@
         return;
       }
 
+      if (liff.isInClient()){
+        alert('再內部');
+      } else {
+        alert('再外部');
+      }
       const profile = await liff.getProfile();
       const userId = profile.userId;
       const displayName = profile.displayName;
